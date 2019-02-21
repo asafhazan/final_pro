@@ -33,6 +33,8 @@ def generateParams(light_sensor):
     diff_Max_Min = maxShater - minShater # 1650, int
     revercePercentage = lightPersentage * 0.01 # 50 --> 0.5
     shaterCalc = diff_Max_Min * revercePercentage
+    if shaterCalc < minShater:
+        camera['speed'] = minShater
     camera['speed'] = shaterCalc
 
 
